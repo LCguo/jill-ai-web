@@ -1,5 +1,6 @@
 import { Component } from 'react'
-import ChatLayout from './components/ChatLayout.jsx'
+import { RouterProvider } from 'react-router-dom'
+import router from './router.jsx'
 
 class AppErrorBoundary extends Component {
   constructor(props) {
@@ -13,14 +14,8 @@ class AppErrorBoundary extends Component {
     if (this.state.error) {
       return (
         <div style={{
-          padding: 40,
-          fontFamily: 'monospace',
-          color: '#e74c3c',
-          background: '#fff',
-          maxWidth: 800,
-          margin: '40px auto',
-          borderRadius: 8,
-          border: '2px solid #e74c3c',
+          padding: 40, fontFamily: 'monospace', color: '#e74c3c', background: '#fff',
+          maxWidth: 800, margin: '40px auto', borderRadius: 8, border: '2px solid #e74c3c',
         }}>
           <h2>Application Error</h2>
           <pre style={{ whiteSpace: 'pre-wrap', fontSize: 13 }}>
@@ -32,14 +27,10 @@ class AppErrorBoundary extends Component {
         </div>
       )
     }
-    return this.props.children
+    return <RouterProvider router={router} />
   }
 }
 
 export default function App() {
-  return (
-    <AppErrorBoundary>
-      <ChatLayout />
-    </AppErrorBoundary>
-  )
+  return <AppErrorBoundary><RouterProvider router={router} /></AppErrorBoundary>
 }
