@@ -404,3 +404,75 @@ html, body, #app {
   text-align: center;
   color: #999;
 }
+
+.mode-switcher {
+  display: inline-flex;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mode-btn {
+  padding: 6px 16px;
+  border: none;
+  background: #fff;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+.mode-btn.active {
+  background: #1677ff;
+  color: #fff;
+}
+.mode-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tool-indicator {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #888;
+}
+.tool-running { display: inline-flex; align-items: center; gap: 6px; }
+.tool-spinner {
+  width: 12px; height: 12px;
+  border: 2px solid #ddd; border-top-color: #1677ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.tool-done { color: #52c41a; }
+
+.citations { margin-top: 8px; }
+.citations-toggle {
+  border: none; background: none; color: #1677ff;
+  font-size: 13px; cursor: pointer; padding: 0;
+}
+.citations-list {
+  margin: 8px 0 0; padding-left: 20px;
+  font-size: 13px; color: #555;
+}
+.citation-item { margin-bottom: 8px; }
+.citation-head { display: flex; gap: 8px; align-items: center; }
+.citation-file { font-weight: 500; color: #333; }
+.citation-score { color: #999; font-size: 12px; }
+.citation-snippet {
+  margin-top: 4px; padding: 6px 8px;
+  background: #f7f7f8; border-radius: 4px;
+  line-height: 1.5; color: #666;
+}
+
+.evidence-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.markdown-body { line-height: 1.8; word-break: break-word; }
+.markdown-body p { margin: 8px 0; }
+.markdown-body table { border-collapse: collapse; margin: 8px 0; }
+.markdown-body th, .markdown-body td { border: 1px solid #e8e8e8; padding: 6px 10px; }
