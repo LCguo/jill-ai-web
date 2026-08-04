@@ -1,4 +1,4 @@
-export default function MessageInput({ input, onChange, onSend, isStreaming }) {
+export default function MessageInput({ input, onChange, onSend, onStop, isStreaming }) {
   return (
     <div className="chat-input-area">
       <input
@@ -6,12 +6,14 @@ export default function MessageInput({ input, onChange, onSend, isStreaming }) {
         placeholder="输入消息..."
         value={input}
         onChange={(e) => onChange(e.target.value)}
-        onKeyDown={(e) => { if (e.key === 'Enter') onSend() }}
+        onKeyDown={(e) => { if (e.key === 'Enter' && !isStreaming) onSend() }}
         disabled={isStreaming}
       />
-      <button onClick={onSend} disabled={isStreaming || !input.trim()}>
-        {isStreaming ? '回答中...' : '发送'}
-      </button>
+      {isStreaming ? (
+        <button className="stop-btn" onClick={onStop}>停止</button>
+      ) : (
+        <button onClick={onSend} disabled={!input.trim()}>发送</button>
+      )}
     </div>
   )
 }
