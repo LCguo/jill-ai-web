@@ -11,5 +11,9 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  test: {
+    environment: 'node',
+    include: ['src/**/*.test.js']
   }
 })
