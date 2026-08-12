@@ -28,7 +28,7 @@ class AppErrorBoundary extends Component {
         </div>
       )
     }
-    return <RouterProvider router={router} />
+    return this.props.children
   }
 }
 
