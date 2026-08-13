@@ -597,6 +597,7 @@ html, body, #app {
 .status-ready { background: #f6ffed; color: #389e0d; }
 .status-failed { background: #fff2f0; color: #cf1322; }
 .status-pending, .status-parsing { background: #fffbe6; color: #ad6800; }
+.doc-error-msg { margin-top: 4px; max-width: 420px; font-size: 12px; color: #cf1322; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .preview-drawer {
   position: fixed; inset: 0; background: rgba(0,0,0,0.35);

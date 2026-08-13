@@ -62,7 +62,12 @@ export default function DocumentList({ docs, loading, statusFilter, onFilter, ke
               <td><span className="doc-domain">{d.docDomain || '-'}</span></td>
               <td>{d.fileType || '-'}</td>
               <td>{formatSize(d.fileSize)}</td>
-              <td><span className={statusClass(d.status)}>{d.status}</span></td>
+              <td>
+                <span className={statusClass(d.status)}>{d.status}</span>
+                {d.status === 'FAILED' && d.errorMsg && (
+                  <div className="doc-error-msg" title={d.errorMsg}>{d.errorMsg}</div>
+                )}
+              </td>
               <td className="doc-actions">
                 {d.status === 'READY' && <button onClick={() => onPreview(d)}>预览</button>}
                 <button className="doc-delete" onClick={() => onDelete(d.id)}>删除</button>
