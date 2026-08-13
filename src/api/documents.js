@@ -7,10 +7,11 @@ export const getDocument = (id) => request(`/documents/${id}`)
 
 export const previewDocumentUrl = (id) => `/api/documents/${id}/preview`
 
-export const uploadDocument = (file, docDomain) => {
+export const uploadDocument = (file, docDomain, parse = true) => {
   const fd = new FormData()
   fd.append('file', file)
   if (docDomain) fd.append('docDomain', docDomain)
+  if (!parse) fd.append('parse', 'false')
   return request('/documents/upload', { method: 'POST', body: fd })
 }
 
