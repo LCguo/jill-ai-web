@@ -613,3 +613,21 @@ html, body, #app {
 }
 .preview-head button { border: 1px solid #d9d9d9; background: #fff; border-radius: 6px; padding: 4px 12px; cursor: pointer; }
 .preview-body { flex: 1; overflow: auto; padding: 16px 20px; white-space: pre-wrap; word-break: break-word; font-size: 13px; line-height: 1.7; color: #333; margin: 0; }
+
+.attach-file-input { display: none; }
+.attach-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border: 1px solid #d9d9d9;
+  background: transparent; border-radius: 6px; cursor: pointer; color: #666;
+  flex-shrink: 0;
+}
+.attach-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.attach-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  max-width: 240px; padding: 2px 8px; margin-right: 6px;
+  background: #f0f5ff; border: 1px solid #adc6ff; border-radius: 4px;
+  font-size: 12px; color: #2b5bd7; flex-shrink: 0;
+}
+.attach-chip-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.attach-chip-remove { border: none; background: none; cursor: pointer; color: #666; font-size: 12px; padding: 0 2px; }
+.attach-error { font-size: 12px; color: #cf1322; margin: 2px 0; }

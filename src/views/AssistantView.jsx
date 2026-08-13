@@ -14,8 +14,8 @@ export default function AssistantView() {
   // 切换会话时清空当前页消息（历史回放后续增强）
   useEffect(() => { clear() }, [current?.id, clear])
 
-  function ensureSessionAndSend() {
-    const text = input.trim()
+  function ensureSessionAndSend(message) {
+    const text = (message || input).trim()
     if (!text || isStreaming) return
     const doSend = (id) => { send(id, text); setInput('') }
     if (current) {
