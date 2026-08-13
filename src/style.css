@@ -563,6 +563,13 @@ html, body, #app {
 }
 .uploader.dragging { border-color: #1677ff; background: #e6f4ff; color: #1677ff; }
 .uploader-hint { font-size: 12px; margin-top: 6px; color: #bbb; }
+.uploader-domain-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.uploader-domain-label { font-size: 13px; color: #666; }
+.uploader-domain {
+  flex: 1; max-width: 320px; padding: 6px 10px; border: 1px solid #d9d9d9;
+  border-radius: 6px; font-size: 13px;
+}
+.uploader-domain:focus { outline: none; border-color: #1677ff; }
 
 .doc-filters { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
 .filter-btn {
@@ -571,6 +578,11 @@ html, body, #app {
 }
 .filter-btn.active { border-color: #1677ff; color: #1677ff; }
 .doc-search { margin-left: auto; padding: 6px 10px; border: 1px solid #d9d9d9; border-radius: 6px; font-size: 13px; }
+.doc-domain-select { margin-left: 0; }
+.doc-domain {
+  display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px;
+  background: #e6f4ff; color: #0958d9;
+}
 
 .doc-table { width: 100%; border-collapse: collapse; background: #fff; }
 .doc-table th, .doc-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; text-align: left; font-size: 14px; }

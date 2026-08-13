@@ -13,7 +13,7 @@ export default function DocumentsView() {
       <div className="documents-head">
         <h2>文档管理</h2>
       </div>
-      <DocumentUploader onUpload={(file) => upload(file)} />
+      <DocumentUploader onUpload={(file, domain) => upload(file, domain)} />
       <DocumentList
         docs={docs}
         loading={loading}
