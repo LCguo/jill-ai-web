@@ -4,10 +4,24 @@ import ToolCallIndicator from './ToolCallIndicator.jsx'
 import CitationList from './CitationList.jsx'
 import EvidenceBadge from './EvidenceBadge.jsx'
 
+function PermissionBadge({ items }) {
+  if (!items || items.length === 0) return null
+  return (
+    <div className="permission-badge-row">
+      {items.map((p, i) => (
+        <span key={p.id || i} className="permission-badge" title={`HITL: ${p.name}`}>
+          🔐 询问：{p.name}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 function AssistantBody({ msg, isLast }) {
   const streaming = isLast && msg.isStreaming
   return (
     <div className="message-bubble">
+      {(msg.permissions || []).length > 0 && <PermissionBadge items={msg.permissions} />}
       {(msg.toolCalls || []).map((t) => (
         <ToolCallIndicator key={t.id} name={t.name} state={t.state} summary={t.summary} />
       ))}

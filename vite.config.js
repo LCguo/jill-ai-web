@@ -10,6 +10,10 @@ export default defineConfig({
         target: 'http://localhost:9010',
         changeOrigin: true
       },
+      '/agui': {
+        target: 'http://localhost:8080',
+        changeOrigin: true
+      },
       '/api': {
         target: 'http://localhost:8080',
         changeOrigin: true

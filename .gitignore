@@ -9,3 +9,6 @@ dist-ssr/
 *.log
 .vscode/
 .idea/
+
+# Vite optimize cache
+node_modules/.vite/
