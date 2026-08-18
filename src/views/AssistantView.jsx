@@ -5,8 +5,19 @@ import MessageInput from '../components/MessageInput.jsx'
 import ModeSwitcher from '../components/ModeSwitcher.jsx'
 import { useChat } from '../hooks/useChat.js'
 import { useSessions } from '../hooks/useSessions.js'
+import { SessionProvider } from '../stores/SessionContext.jsx'
 
 export default function AssistantView() {
+  // SessionProvider 局部包在这里：旧的 SAA 会话 API（/api/assistant/sessions）已废弃，
+  // 后端返回 404（SessionContext 已做静默降级）。不影响其它页面（AG-UI 等）。
+  return (
+    <SessionProvider>
+      <AssistantViewInner />
+    </SessionProvider>
+  )
+}
+
+function AssistantViewInner() {
   const [input, setInput] = useState('')
   const { messages, isStreaming, messagesEndRef, send, stop, clear } = useChat()
   const { current, create, setMode } = useSessions()

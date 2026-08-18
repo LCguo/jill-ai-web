@@ -14,7 +14,13 @@ export function SessionProvider({ children }) {
       const list = await api.listSessions()
       setSessions(Array.isArray(list) ? list : [])
     } catch (e) {
-      console.error('load sessions failed', e)
+      // 旧 SAA 会话端点（/api/assistant/sessions）已随 jill-ai-agent 迁移 AgentScope 废弃，
+      // 后端没有该端点 → 404。这是预期行为，静默降级为空列表，不打断页面。
+      if (e?.status === 404) {
+        console.debug('[SessionProvider] legacy session API unavailable (404), sessions disabled')
+      } else {
+        console.error('load sessions failed', e)
+      }
     } finally {
       setLoading(false)
     }

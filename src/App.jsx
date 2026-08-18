@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import router from './router.jsx'
-import { SessionProvider } from './stores/SessionContext.jsx'
 
 class AppErrorBoundary extends Component {
   constructor(props) {
@@ -33,5 +32,7 @@ class AppErrorBoundary extends Component {
 }
 
 export default function App() {
-  return <AppErrorBoundary><SessionProvider><RouterProvider router={router} /></SessionProvider></AppErrorBoundary>
+  // 注意：全局不再包 SessionProvider —— 它依赖已废弃的 /api/assistant/sessions 端点（SAA 时代），
+  // 会在每个页面挂载时触发 404。旧 /assistant 页面自身已做 404 降级。
+  return <AppErrorBoundary><RouterProvider router={router} /></AppErrorBoundary>
 }
